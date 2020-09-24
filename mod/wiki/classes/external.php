@@ -938,7 +938,7 @@ class mod_wiki_external extends external_api {
                 'userid' => new external_value(PARAM_INT, 'Subwiki\'s user ID. Used if subwiki does not exists.', VALUE_DEFAULT,
                     null),
                 'groupid' => new external_value(PARAM_INT, 'Subwiki\'s group ID. Used if subwiki does not exists.', VALUE_DEFAULT,
-                    null)
+                    0)
             )
         );
     }
@@ -957,7 +957,7 @@ class mod_wiki_external extends external_api {
      * @since Moodle 3.1
      */
     public static function new_page($title, $content, $contentformat = null, $subwikiid = null, $wikiid = null, $userid = null,
-        $groupid = null) {
+        $groupid = 0) {
         global $USER;
 
         $params = self::validate_parameters(self::new_page_parameters(),
